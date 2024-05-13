@@ -16,38 +16,10 @@
           <li class="nav-item"><a class="nav-link" href="#">About</a></li>
           <li class="nav-item"><a class="nav-link" href="#">How to donate?</a></li>
           <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+          <button class="btnSignin-popup">Signin</button>
         </ul>
       </nav>
     </header>
-    <form class="form-horizontal" action="/signin.php" method="post" id="signinForm">
-      <div class="form-group">
-        <label for="username_or_email" class="col-sm-2 col-form-label">Username or Email:</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" name="username_or_email" id="username_or_email" placeholder="Username or Email">
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="password" class="col-sm-2 col-form-label">Password:</label>
-        <div class="col-sm-10">
-          <input type="password" class="form-control" name="password" id="password" placeholder="Password">
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-          <div class="checkbox">
-            <label for="remember_me">
-              <input type="checkbox" name="remember_me" id="remember_me"> Remember Me
-            </label>
-          </div>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-          <button type="submit" form="signinForm" class="btn btn-primary">Sign In</button>
-          <a href="#">Forgot Password?</a>
-        </div>
-      </div>
-    </form>        
     <main>
       <div class="row">
         <div class="col-sm-6">
@@ -71,4 +43,3 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.
-
