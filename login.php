@@ -20,7 +20,7 @@ if(isset($_POST['signInButton']))
     }
     else
     {
-        header("Location: service.php?error=Incorrect User Name of Password");
+        header("Location: loginPage.php?error=Incorrect User Name of Password");
     }
 }
 ?>
