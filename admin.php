@@ -1,3 +1,7 @@
+<?php
+include('connect/connect.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,10 +49,6 @@
     </div>
     <!-- Spinner End -->
 
-
-
-
-
     
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 wow fadeIn" data-wow-delay="0.1s">
@@ -83,83 +83,59 @@
     <!-- Testing NavBar Start -->
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="">Blood Donation</a>
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Total</a>
+          <a class="nav-link" href="admin.php?total">Total</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Hospital</a>
+          <a class="nav-link" href="admin.php?hospital">Hospital</a>
         </li>
+
         <li class="nav-item">
           <a class="nav-link" href="#">Examiner</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+          <a class="nav-link disabled" aria-disabled="true">Sign Up</a>
         </li>
       </ul>
     </div>
+
   </div>
 </nav>
 
     <!-- Testing NavBar End -->
 
 
-    <!-- Text Start -->
-            <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">@</span>
-        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-        </div>
-    <!-- Text End -->
+    <!-- Child Class Start -->
+    <div class = "container my-5">
+      <?php
+          if(isset($_GET['total'])){
+            include('total.php');
+          }
+          else
+          if(isset($_GET['hospital'])){
+            include('hospital.php');
+
+          }
+      ?>
+    </div>
+
+    <!-- Child Class End -->
 
 
-    <!-- Select Start -->
-            <select class="form-select" aria-label="Default select example">
-        <option selected>Open this select menu</option>
-        <option value="1">Total</option>
-        <option value="2">Hospital</option>
-        <option value="3">Examiner</option>
-        </select>
-    <!-- Select End -->
 
-    <!-- Table Start -->
-            <table class="table">
-        <thead>
-            <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            </tr>
-            <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            </tr>
-            <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-            </tr>
-        </tbody>
-        </table>
-    <!-- Table End -->
+
+
 
 
     <!-- Back to Top -->
