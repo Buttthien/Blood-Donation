@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Klinik - Clinic Website Template</title>
+    <title>Healthy Blood</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -30,7 +30,6 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
-    
 </head>
 
 <body>
@@ -49,7 +48,7 @@
             <div class="col-lg-7 px-5 text-start">
                 <div class="h-100 d-inline-flex align-items-center py-3 me-4">
                     <small class="fa fa-map-marker-alt text-primary me-2"></small>
-                    <small>123 Street, New York, USA</small>
+                    <small>International University, District 6, Thu Duc, TP HCM </small>
                 </div>
                 <div class="h-100 d-inline-flex align-items-center py-3">
                     <small class="far fa-clock text-primary me-2"></small>
@@ -59,7 +58,7 @@
             <div class="col-lg-5 px-5 text-end">
                 <div class="h-100 d-inline-flex align-items-center py-3 me-4">
                     <small class="fa fa-phone-alt text-primary me-2"></small>
-                    <small>+012 345 6789</small>
+                    <small>+0836454778</small>
                 </div>
                 <div class="h-100 d-inline-flex align-items-center">
                     <a class="btn btn-sm-square rounded-circle bg-white text-primary me-1" href=""><i class="fab fa-facebook-f"></i></a>
@@ -75,15 +74,15 @@
 
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 wow fadeIn" data-wow-delay="0.1s">
-        <a href="index.php" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <h1 class="m-0 text-primary"><i class="far fa-hospital me-3"></i>Klinik</h1>
+        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+            <h1 class="m-0 text-primary"><i class="far fa-hospital me-3"></i>Healthy Blood</h1>
         </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.php" class="nav-item nav-link active">Home</a>
+            <a href="index.php" class="nav-item nav-link active">Home</a>
                 <a href="about.php" class="nav-item nav-link">About</a>
                 <a href="loginPage.php" class="nav-item nav-link">Sign in</a>
                 <div class="nav-item dropdown">
@@ -108,23 +107,23 @@
     <div class="container-fluid header bg-primary p-0 mb-5">
         <div class="row g-0 align-items-center flex-column-reverse flex-lg-row">
             <div class="col-lg-6 p-5 wow fadeIn" data-wow-delay="0.1s">
-                <h1 class="display-4 text-white mb-5">Good Health Is The Root Of All Heppiness</h1>
+                <h1 class="display-4 text-white mb-5">The Blood stock is running out!</h1>
                 <div class="row g-4">
                     <div class="col-sm-4">
                         <div class="border-start border-light ps-4">
-                            <h2 class="text-white mb-1" data-toggle="counter-up">123</h2>
+                            <h2 class="text-white mb-1" data-toggle="counter-up">10.000</h2>
                             <p class="text-light mb-0">Expert Doctors</p>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="border-start border-light ps-4">
-                            <h2 class="text-white mb-1" data-toggle="counter-up">1234</h2>
+                            <h2 class="text-white mb-1" data-toggle="counter-up">50.000</h2>
                             <p class="text-light mb-0">Medical Stuff</p>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="border-start border-light ps-4">
-                            <h2 class="text-white mb-1" data-toggle="counter-up">12345</h2>
+                            <h2 class="text-white mb-1" data-toggle="counter-up">700.000</h2>
                             <p class="text-light mb-0">Total Patients</p>
                         </div>
                     </div>
@@ -141,13 +140,13 @@
                     <div class="owl-carousel-item position-relative">
                         <img class="img-fluid" src="img/carousel-2.jpg" alt="">
                         <div class="owl-carousel-text">
-                            <h1 class="display-1 text-white mb-0">Neurology</h1>
+                            <h1 class="display-1 text-white mb-0">Anaemia</h1>
                         </div>
                     </div>
                     <div class="owl-carousel-item position-relative">
                         <img class="img-fluid" src="img/carousel-3.jpg" alt="">
                         <div class="owl-carousel-text">
-                            <h1 class="display-1 text-white mb-0">Pulmonary</h1>
+                            <h1 class="display-1 text-white mb-0">Fatigue</h1>
                         </div>
                     </div>
                 </div>
@@ -169,9 +168,9 @@
                 </div>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                     <p class="d-inline-block border rounded-pill py-1 px-4">About Us</p>
-                    <h1 class="mb-4">Why You Should Trust Us? Get Know About Us!</h1>
-                    <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                    <p class="mb-4">Stet no et lorem dolor et diam, amet duo ut dolore vero eos. No stet est diam rebum amet diam ipsum. Clita clita labore, dolor duo nonumy clita sit at, sed sit sanctus dolor eos.</p>
+                    <h1 class="mb-4">Why You Should We Donate Blood? Get to Know!</h1>
+                    <p>Your single blood donation can help up to three people in need. A constant supply of safe blood is essential, and your contribution can make a life-or-death difference.</p>
+                    <p class="mb-4"> Every blood donor is a hero. Your contribution ensures a readily available blood supply for those who need it most. By donating blood, you're not just giving blood, you're giving someone a chance at life!</p>
                     <p><i class="far fa-check-circle text-primary me-3"></i>Quality health care</p>
                     <p><i class="far fa-check-circle text-primary me-3"></i>Only Qualified Doctors</p>
                     <p><i class="far fa-check-circle text-primary me-3"></i>Medical Research Professionals</p>
@@ -187,8 +186,8 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <p class="d-inline-block border rounded-pill py-1 px-4">Services</p>
-                <h1>Health Care Solutions</h1>
+                <p class="d-inline-block border rounded-pill py-1 px-4">Q&A</p>
+                <h1>Blood Caring Information</h1>
             </div>
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -196,8 +195,14 @@
                         <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4" style="width: 65px; height: 65px;">
                             <i class="fa fa-heartbeat text-primary fs-4"></i>
                         </div>
-                        <h4 class="mb-3">Cardiology</h4>
-                        <p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
+                        <h4 class="mb-3">Health Care Before Blood Donation</h4>
+                        <p class="mb-4">Check Your Eligibility: Age requirements, weight minimums, and overall health are factors to consider
+
+                            Get a Good Night's Sleep: Aim for at least 7-8 hours of sleep the night before your donation
+                            
+                            Hydrate Well: Drink plenty of water throughout the day before your donation
+                            
+                            Review Medication List: Some medications may temporarily disqualify you from donating</p>
                         <a class="btn" href=""><i class="fa fa-plus text-primary me-3"></i>Read More</a>
                     </div>
                 </div>
@@ -206,8 +211,12 @@
                         <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4" style="width: 65px; height: 65px;">
                             <i class="fa fa-x-ray text-primary fs-4"></i>
                         </div>
-                        <h4 class="mb-3">Pulmonary</h4>
-                        <p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
+                        <h4 class="mb-3">Health Care After Blood Donation</h4>
+                        <p class="mb-4">Hydrate Further: Continue drinking plenty of fluids after donation to replenish lost fluids.
+                            
+                            Rest and Avoid Strenuous Activity: Take it easy for the rest of the day and avoid strenuous exercise or lifting heavy objects
+                            
+                            Monitor the Injection Site: Keep an eye on the bandage at the injection site for any redness or swelling</p>
                         <a class="btn" href=""><i class="fa fa-plus text-primary me-3"></i>Read More</a>
                     </div>
                 </div>
@@ -216,8 +225,8 @@
                         <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4" style="width: 65px; height: 65px;">
                             <i class="fa fa-brain text-primary fs-4"></i>
                         </div>
-                        <h4 class="mb-3">Neurology</h4>
-                        <p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
+                        <h4 class="mb-3">Foods before donation </h4>
+                        <p class="mb-4">Eat a Healthy Meal that have a nutritious meal rich in iron (red meat, poultry, fish, beans, lentils)</p>
                         <a class="btn" href=""><i class="fa fa-plus text-primary me-3"></i>Read More</a>
                     </div>
                 </div>
@@ -226,8 +235,8 @@
                         <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4" style="width: 65px; height: 65px;">
                             <i class="fa fa-wheelchair text-primary fs-4"></i>
                         </div>
-                        <h4 class="mb-3">Orthopedics</h4>
-                        <p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
+                        <h4 class="mb-3">Foods after donation</h4>
+                        <p class="mb-4">Maintain a healthy diet with iron-rich foods to help replenish your iron stores: Red Meat (Beef, lamb,...), Poultry (Chicken, turkey,...), Fish and Shellfish (Tuna, salmon,...), Beans and Lentils, Tofu,...</p>
                         <a class="btn" href=""><i class="fa fa-plus text-primary me-3"></i>Read More</a>
                     </div>
                 </div>
@@ -236,8 +245,12 @@
                         <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4" style="width: 65px; height: 65px;">
                             <i class="fa fa-tooth text-primary fs-4"></i>
                         </div>
-                        <h4 class="mb-3">Dental Surgery</h4>
-                        <p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
+                        <h4 class="mb-3">Personal Benefits</h4>
+                        <p class="mb-4">Improved Health (Potential): While research is ongoing, some studies suggest blood donation may offer potential health benefits for the donor. 
+
+                            Boosting red blood cell production: Your body responds to blood donation by producing new red blood cells,
+                            
+                            Sense of Accomplishment and Satisfaction: Donating blood is a selfless act that allows you to directly contribute to the well-being of others.</p>
                         <a class="btn" href=""><i class="fa fa-plus text-primary me-3"></i>Read More</a>
                     </div>
                 </div>
@@ -246,8 +259,11 @@
                         <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4" style="width: 65px; height: 65px;">
                             <i class="fa fa-vials text-primary fs-4"></i>
                         </div>
-                        <h4 class="mb-3">Laboratory</h4>
-                        <p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
+                        <h4 class="mb-3">Community Benefits</h4>
+                        <p class="mb-4">Saves Lives: A single blood donation can help up to three people in need                                                        
+                                Strengthens Community Resilience: Blood donation programs rely on the generosity of local communities     
+                                Raises Awareness: Donating blood and sharing your experience can inspire others to do the same                                    
+                                Improves Medical Care: Availability of blood allows hospitals and healthcare facilities to provide critical medical procedures and treatments.</p>
                         <a class="btn" href=""><i class="fa fa-plus text-primary me-3"></i>Read More</a>
                     </div>
                 </div>
@@ -263,9 +279,13 @@
             <div class="row g-0 mx-lg-0">
                 <div class="col-lg-6 feature-text py-5 wow fadeIn" data-wow-delay="0.1s">
                     <div class="p-lg-5 ps-lg-0">
-                        <p class="d-inline-block border rounded-pill text-light py-1 px-4">Features</p>
-                        <h1 class="text-white mb-4">Why Choose Us</h1>
-                        <p class="text-white mb-4 pb-2">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo erat amet</p>
+                        <p class="d-inline-block border rounded-pill text-light py-1 px-4">Explore being a donor</p>
+                        <h1 class="text-white mb-4">Who can give blood?</h1>
+                        <p class="text-white mb-4 pb-2">Most people can give blood if they are fit and healthy, but there are some rules for donors.</p>
+
+                        <a class="btn" href=""><i class="fa fa-plus text-primary me-3"></i>Read More</a>
+
+
                         <div class="row g-4">
                             <div class="col-6">
                                 <div class="d-flex align-items-center">
@@ -329,8 +349,8 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <p class="d-inline-block border rounded-pill py-1 px-4">Doctors</p>
-                <h1>Our Experience Doctors</h1>
+                <p class="d-inline-block border rounded-pill py-1 px-4">News</p>
+                <h1>Donation Highlights</h1>
             </div>
             <div class="row g-4">
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -557,6 +577,19 @@
                     <div class="position-relative mx-auto" style="max-width: 400px;">
                         <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
                         <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                        Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
                     </div>
                 </div>
             </div>
