@@ -7,15 +7,14 @@ include('connect/connect.php');
 
 <div class = "row">
 
-<div class = "column">
 <!-- Table -->
 <table class="table">
     <thead>
         <tr>
-        <th>ID Hospital</th>
-        <th>Private Name</th>
-        <th>Total Blood</th>
-        <th>Examinor</th>
+        <th scope="col">ID Hospital</th>
+        <th scope="col">Private Name</th>
+        <th scope="col">Total Blood</th>
+        <th scope="col">Examinor</th>
         </tr>
     </thead>
     <tbody >
@@ -71,7 +70,6 @@ echo"
 </table>
 
 
-        </div>
 
 </div>
 
