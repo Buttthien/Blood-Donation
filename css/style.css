@@ -477,7 +477,12 @@
 .footer .btn.btn-social:hover {
     color: var(--primary);
 }
-
+.column {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+  }
+  .row {margin: 0 -5px;}
 .footer .btn.btn-link {
     display: block;
     margin-bottom: 5px;

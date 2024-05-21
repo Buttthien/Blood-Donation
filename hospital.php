@@ -6,9 +6,9 @@ include('connect/connect.php');
 <form action="" method = "post" class = "mb-2">
 
 <div class = "row">
-<div class ="col-md-2 bg-secondary p-0">
+<div class ="col-md-2 bg-secondary  p-0">
   <ul class="navbar-nav me-auto text-center">
-    <li class="nav-item bg-info">
+    <li class="nav-item bg-info ">
       <a href="#" class="nav-link"><h4>Hospital<h4></a>
     </li>
     <?php
@@ -19,7 +19,6 @@ include('connect/connect.php');
                   $private_name = $row_data['Private_Name'];
                   $id = $row_data['id'];
                   echo "<li class='nav-item'>
-                  
                   <a class='nav-link' href='index.php?id_hospital=$id' text-light><h4>$private_name<h4></a>
                 </li>";
                 
@@ -27,8 +26,6 @@ include('connect/connect.php');
         ?>
   </ul>
 </div>
-
-
 
 </div>
 
