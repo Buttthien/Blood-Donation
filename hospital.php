@@ -6,26 +6,72 @@ include('connect/connect.php');
 <form action="" method = "post" class = "mb-2">
 
 <div class = "row">
-<div class ="col-md-2 bg-secondary  p-0">
-  <ul class="navbar-nav me-auto text-center">
-    <li class="nav-item bg-info ">
-      <a href="#" class="nav-link"><h4>Hospital<h4></a>
-    </li>
-    <?php
-                $select_data = "SELECT DISTINCT Private_Name, B.ID as id FROM `hospital_account` as A, `account` as B WHERE A.ID_Account = B.ID ";
-                $result_data = mysqli_query($conn, $select_data );
-                
-                while($row_data = mysqli_fetch_assoc($result_data)){
-                  $private_name = $row_data['Private_Name'];
-                  $id = $row_data['id'];
-                  echo "<li class='nav-item'>
-                  <a class='nav-link' href='index.php?id_hospital=$id' text-light><h4>$private_name<h4></a>
-                </li>";
-                
-                }
-        ?>
-  </ul>
-</div>
+
+<div class = "column">
+<!-- Table -->
+<table class="table">
+    <thead>
+        <tr>
+        <th>ID Hospital</th>
+        <th>Private Name</th>
+        <th>Total Blood</th>
+        <th>Examinor</th>
+        </tr>
+    </thead>
+    <tbody >
+
+<?php
+//ID
+    $select_query ="SELECT HA.ID as id FROM `hospital_account` as HA, `Account` as A WHERE HA.ID_Account = A.ID";
+    $result_query = mysqli_query($conn, $select_query);
+
+    while($row = mysqli_fetch_assoc($result_query)){
+        $id = $row['id'];
+        echo"
+        <tr>
+        <td>$id</td>
+        ";
+//Name
+$select_query_name ="SELECT Private_Name as name FROM `account` WHERE ID = $id";
+$result_query_name = mysqli_query($conn, $select_query_name);
+
+($row = mysqli_fetch_assoc($result_query_name));
+$Name = $row['name'];
+echo"
+    <td>$Name</td>
+";
+//Amount
+        $select_query_blood_total ="SELECT SUM(Amount) as total_blood FROM `blood_bank` WHERE ID_Hospital = $id";
+        $result_query_blood_total = mysqli_query($conn, $select_query_blood_total);
+
+    ($row = mysqli_fetch_assoc($result_query_blood_total));
+        $total_blood_hos = $row['total_blood'];
+        if($total_blood_hos == 0){
+            echo"
+            <td>0</td>";
+        }else{
+        echo"
+            <td>$total_blood_hos</td>";
+    }
+    
+//Examinor
+    $select_query_examinor ="SELECT COUNT(ID) as num FROM `examinor` WHERE ID_Hospital_Account = $id";
+    $result_query_examinor = mysqli_query($conn, $select_query_examinor);
+
+    ($row = mysqli_fetch_assoc($result_query_examinor));
+        $examinor = $row['num'];
+        echo"
+            <td>$examinor</td>
+            </tr>";
+    
+}
+?>
+
+    </tbody>
+</table>
+
+
+        </div>
 
 </div>
 

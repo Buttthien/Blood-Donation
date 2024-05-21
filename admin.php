@@ -60,7 +60,6 @@ include('connect/connect.php');
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.php" class="nav-item nav-link active">Home</a>
                 <a href="about.php" class="nav-item nav-link">About</a>
                 <a href="service.php" class="nav-item nav-link">Service</a>
                 <div class="nav-item dropdown">
@@ -83,7 +82,7 @@ include('connect/connect.php');
     <!-- Testing NavBar Start -->
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="">Blood Donation</a>
+    <a class="navbar-brand" href="admin.php?total">Blood Donation</a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -91,9 +90,6 @@ include('connect/connect.php');
 
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
         <li class="nav-item">
           <a class="nav-link" href="admin.php?total">Total</a>
         </li>
@@ -121,11 +117,8 @@ include('connect/connect.php');
       <?php
           if(isset($_GET['total'])){
             include('total.php');
-          }
-          else
-          if(isset($_GET['hospital'])){
+          }else if(isset($_GET['hospital'])){
             include('hospital.php');
-
           }
       ?>
     </div>
