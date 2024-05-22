@@ -123,7 +123,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="#">Examiner</a>
+          <a class="nav-link" href="admin.php?details">Details</a>
         </li>
         <li class="nav-item">
           <a class="nav-link disabled" aria-disabled="true">Sign Up</a>
@@ -131,6 +131,10 @@
         <li class="nav-item">
         <a class="nav-link" href="admin.php?createAccount&role=<?php echo $role; ?>">Add Account</a>
         </li>
+        <form class="d-flex" role="search">
+        <input class="search" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
       </ul>
     </div>
 
@@ -142,6 +146,8 @@
 
 
 
+    <!-- Searching Button Start -->
+
     <!-- Child Class Start -->
     <div class = "container my-5">
       <?php
@@ -149,8 +155,6 @@
             include('total.php');
           }else if(isset($_GET['hospital'])){
             include('hospital.php');
-          }else if(isset($_GET['createAccount'])){
-            include('createAccount.php');
           }
       ?>
     </div>
