@@ -155,6 +155,10 @@
             include('total.php');
           }else if(isset($_GET['hospital'])){
             include('hospital.php');
+          }else if(isset($_GET['createAccount'])){
+            include('createAccount.php');
+          }else if(isset($_GET['details'])){
+            include('details.php');
           }
       ?>
     </div>
