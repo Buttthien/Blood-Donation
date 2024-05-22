@@ -1,5 +1,21 @@
 <?php
-include('connect/connect.php');
+  include('connect/connect.php');
+  session_start();
+
+  // Check if user is logged in
+  if (!isset($_SESSION['userName'])) {
+    header('Location: loginPage.php');
+    exit();
+  }
+
+  if(isset($_SESSION['role'])) {
+    $role = $_SESSION['role'];
+    
+} else {
+    
+}
+  
+
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +65,6 @@ include('connect/connect.php');
         </div>
     </div>
     <!-- Spinner End -->
-
     
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 wow fadeIn" data-wow-delay="0.1s">
@@ -73,9 +88,18 @@ include('connect/connect.php');
                         <a href="404.php" class="dropdown-item">404 Page</a>
                     </div>
                 </div>
+                
                 <a href="contact.php" class="nav-item nav-link">Contact</a>
+                <li class="profile dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-user"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <li><a class="dropdown-item" href="logout.php">Log Out</a></li>
+                </ul>
+            </li>
             </div>
-            <a href="" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Appointment<i class="fa fa-arrow-right ms-3"></i></a>
         </div>
     </nav>
     <!-- Navbar End -->
@@ -104,6 +128,9 @@ include('connect/connect.php');
         <li class="nav-item">
           <a class="nav-link disabled" aria-disabled="true">Sign Up</a>
         </li>
+        <li class="nav-item">
+        <a class="nav-link" href="admin.php?createAccount&role=<?php echo $role; ?>">Add Account</a>
+        </li>
       </ul>
     </div>
 
@@ -113,9 +140,6 @@ include('connect/connect.php');
 
     <!-- Testing NavBar End -->
 
-    <div>
-    <a class="create-account" href="createAccount.php">Create Account</a>
-    </div>
 
 
     <!-- Child Class Start -->
@@ -125,6 +149,8 @@ include('connect/connect.php');
             include('total.php');
           }else if(isset($_GET['hospital'])){
             include('hospital.php');
+          }else if(isset($_GET['createAccount'])){
+            include('createAccount.php');
           }
       ?>
     </div>

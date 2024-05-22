@@ -1,6 +1,16 @@
+<?php
+  include('connect/connect.php');
+  session_start();
+
+  // Check if user is logged in
+  if (isset($_SESSION['userName'])) {
+    header('Location: admin.php?total');
+    exit();
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <title>Klinik - Clinic Website Template</title>

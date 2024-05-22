@@ -15,12 +15,14 @@ if(isset($_POST['signInButton']))
         session_start();
         $row = $result->fetch_assoc();
         $_SESSION['userName'] = $row['UserName'];
-        header("Location: afterLoginPageTest.php"); // to the after-login page 
+        $_SESSION['role'] = $row['Function_Account'];
+        header("Location: admin.php?total"); // to the after-login page 
         exit();
     }
     else
     {
         header("Location: loginPage.php?error=Incorrect User Name of Password");
+        exit();
     }
 }
 ?>
