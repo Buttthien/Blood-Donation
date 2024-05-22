@@ -98,11 +98,15 @@ include('connect/connect.php');
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="#">Examiner</a>
+          <a class="nav-link" href="admin.php?details">Details</a>
         </li>
         <li class="nav-item">
           <a class="nav-link disabled" aria-disabled="true">Sign Up</a>
         </li>
+        <form class="d-flex" role="search">
+        <input class="search" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
       </ul>
     </div>
 
@@ -112,6 +116,8 @@ include('connect/connect.php');
     <!-- Testing NavBar End -->
 
 
+    <!-- Searching Button Start -->
+
     <!-- Child Class Start -->
     <div class = "container my-5">
       <?php
@@ -119,6 +125,8 @@ include('connect/connect.php');
             include('total.php');
           }else if(isset($_GET['hospital'])){
             include('hospital.php');
+          }else if(isset($_GET['details'])){
+            include('details.php');
           }
       ?>
     </div>
