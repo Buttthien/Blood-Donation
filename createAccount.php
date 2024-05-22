@@ -61,6 +61,7 @@ include('connect/connect.php');
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="index.php" class="nav-item nav-link active">Home</a>
                 <a href="about.php" class="nav-item nav-link">About</a>
                 <a href="service.php" class="nav-item nav-link">Service</a>
                 <div class="nav-item dropdown">
@@ -83,7 +84,7 @@ include('connect/connect.php');
     <!-- Testing NavBar Start -->
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="admin.php?total">Blood Donation</a>
+    <a class="navbar-brand" href="">Blood Donation</a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -92,6 +93,9 @@ include('connect/connect.php');
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="admin.php?total">Total</a>
         </li>
         <li class="nav-item">
@@ -99,15 +103,11 @@ include('connect/connect.php');
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="admin.php?details">Details</a>
+          <a class="nav-link" href="#">Examiner</a>
         </li>
         <li class="nav-item">
           <a class="nav-link disabled" aria-disabled="true">Sign Up</a>
         </li>
-        <form class="d-flex" role="search">
-        <input class="search" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
       </ul>
     </div>
 
@@ -118,21 +118,66 @@ include('connect/connect.php');
     <!-- Testing NavBar End -->
 
     <div>
-    <a class="create-account" href="createAccount.php">Create Account</a>
+    <a class="create-account" href="">Create Account</a>
     </div>
 
-
-    <!-- Searching Button Start -->
+    <!-- Form -->
+    <div class="col-lg-9 wow fadeInUp createAccountForm" data-wow-delay="0.5s">
+                    <div class="bg-light rounded h-100 d-flex align-items-center p-5">
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-12 col-sm-6">
+                                    <input type="text" class="form-control border-0" placeholder="Full Name" style="height: 55px;">
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <input type="email" class="form-control border-0" placeholder="Username" style="height: 55px;">
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <input type="text" class="form-control border-0" placeholder="Password" style="height: 55px;">
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <select class="form-select border-0" style="height: 55px;">
+                                        <option selected>Choose Account Type</option>
+                                        <option value="1">Admin</option>
+                                        <option value="2">Hospital</option>
+                                        <option value="3">Examinor</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="date" id="date" data-target-input="nearest">
+                                        <input type="text"
+                                            class="form-control border-0 datetimepicker-input"
+                                            placeholder="Choose Date" data-target="#date" data-toggle="datetimepicker" style="height: 55px;">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="time" id="time" data-target-input="nearest">
+                                        <input type="text"
+                                            class="form-control border-0 datetimepicker-input"
+                                            placeholder="Choose Date" data-target="#time" data-toggle="datetimepicker" style="height: 55px;">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <textarea class="form-control border-0" rows="5" placeholder="Describe your problem"></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100 py-3" type="submit">Book Appointment</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
 
     <!-- Child Class Start -->
     <div class = "container my-5">
       <?php
           if(isset($_GET['total'])){
             include('total.php');
-          }else if(isset($_GET['hospital'])){
+          }
+          else
+          if(isset($_GET['hospital'])){
             include('hospital.php');
-          }else if(isset($_GET['details'])){
-            include('details.php');
+
           }
       ?>
     </div>

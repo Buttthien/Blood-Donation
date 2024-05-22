@@ -539,3 +539,29 @@ p.error {
     padding: 10px;
     margin-bottom: 16px;
 }
+
+.create-account {
+    color: white;
+    background-color: #0463fa;
+    border: 3px solid #0463fa;
+    border-radius: 5px;
+    margin-left: 80%;
+    width: 100px;
+    height: 70px;
+    padding: 10px 0;
+    text-align: center;
+    transition: .5s;
+    display: block;
+}
+
+.create-account:hover {
+    color: white;
+    background-color: #0354d5;
+    border-color: #034fc8;
+    cursor: pointer;
+}
+
+.createAccountForm {
+    margin-left: 100px;
+}
+
