@@ -1,12 +1,17 @@
 <?php
-  include('connect/connect.php');
-  session_start();
+include('connect/connect.php');
 
-  // Check if user is logged in
-  if (isset($_SESSION['userName'])) {
-    header('Location: admin.php?total');
+// Set session timeout and cookie lifetime
+ini_set('session.gc_maxlifetime', 1800);  // 30 minutes
+ini_set('session.cookie_lifetime', 0);    // Session cookie expires when the browser is closed
+
+session_start();
+
+// Redirect to admin page if already logged in
+if (isset($_SESSION['userName'])) {
+    header('Location: admin.php');
     exit();
-  }
+}
 ?>
 
 <!DOCTYPE html>
@@ -51,7 +56,6 @@
     </div>
     <!-- Spinner End -->
 
-
     <!-- Topbar Start -->
     <div class="container-fluid bg-light p-0 wow fadeIn" data-wow-delay="0.1s">
         <div class="row gx-0 d-none d-lg-flex">
@@ -81,7 +85,6 @@
     </div>
     <!-- Topbar End -->
 
-
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 wow fadeIn" data-wow-delay="0.1s">
         <a href="index.php" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
@@ -94,7 +97,7 @@
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="index.php" class="nav-item nav-link">Home</a>
                 <a href="about.php" class="nav-item nav-link">About</a>
-                <a href="service.php" class="nav-item nav-link active">Sign in</a>
+                <a href="loginPage.php" class="nav-item nav-link active">Sign in</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                     <div class="dropdown-menu rounded-0 rounded-bottom m-0">
@@ -124,7 +127,7 @@
                     <p class="error"><?php echo htmlspecialchars($_GET['error']) ?></p>
                     <?php 
                         // Clear the error message after displaying it
-                        echo "<script>;
+                        echo "<script>
                                 if(window.history.replaceState) {
                                     window.history.replaceState(null, null, window.location.href.split('?')[0]);
                                 }
@@ -148,9 +151,6 @@
             </div>
         </div>
     </div>
-
-
-        
 
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
@@ -206,10 +206,8 @@
     </div>
     <!-- Footer End -->
 
-
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
-
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -236,7 +234,7 @@
             }
         }
     });
-</script>
+    </script>
 
 </body>
 
