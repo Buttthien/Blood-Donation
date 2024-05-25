@@ -14,7 +14,7 @@ $iddd = $_SESSION['ID'];
 
         while($row_data = mysqli_fetch_assoc($result_data)){
           $blood = $row_data['blood'];
-          echo"ok";
+          
           
           //FIND AMOUNT OF EACH TYPE OF BLOOD
           $select_each_blood = "SELECT SUM(Amount) AS total_each_blood from `blood_bank` WHERE Blood_Type = '$blood' AND ID_Hospital = '$iddd'";

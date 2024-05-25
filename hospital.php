@@ -29,21 +29,22 @@ include('connect/connect.php');
 
 <?php
 //ID
-    $select_query ="SELECT HA.ID as id FROM `hospital_account` as HA, `Account` as A WHERE HA.ID_Account = A.ID";
+    $select_query ="SELECT HA.ID as id, A.ID as id_account FROM `hospital_account` as HA, `Account` as A WHERE HA.ID_Account = A.ID AND A.Function_Account = 'Hospital'";
     $result_query = mysqli_query($conn, $select_query);
 
     while($row = mysqli_fetch_assoc($result_query)){
         $id = $row['id'];
+        $id_account = $row['id_account'];
         echo"
         <tr>
         <td>$id</td>
         ";
 //Name
-$select_query_name ="SELECT Private_Name as name FROM `account` WHERE ID = $id";
+$select_query_name ="SELECT Private_Name as namee FROM `account` WHERE ID = $id_account";
 $result_query_name = mysqli_query($conn, $select_query_name);
 
 ($row = mysqli_fetch_assoc($result_query_name));
-$Name = $row['name'];
+$Name = $row['namee'];
 echo"
     <td>$Name</td>
 ";

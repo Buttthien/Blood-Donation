@@ -1,6 +1,6 @@
 <?php 
 include('connect/connect.php');
-$id = $_SESSION['ID_Hospital'];
+$id = $_SESSION['ID'];
 ?>
 
 <form action="" method = "post" class = "mb-2">

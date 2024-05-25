@@ -23,17 +23,17 @@ $idd = $_SESSION['ID'];
 <?php
 //ID
 
-$select_query ="SELECT ID as id FROM `Examiner` WHERE ID_Account = $idd";
+$select_query ="SELECT ID FROM `Examiner` WHERE ID_Hospital_Account = $idd";
     $result_query = mysqli_query($conn, $select_query);
 
     while($row = mysqli_fetch_assoc($result_query)){
-        $id = $row['id'];
+        $id = $row['ID'];
         echo"
         <tr>
         <td>$id</td>
         ";
 //Name
-$select_query_name ="SELECT a.Private_Name as namee FROM `account` AS a, `Examiner` AS e WHERE a.ID = $idd AND a.ID = e.ID_Account";
+$select_query_name ="SELECT a.Private_Name as namee FROM `account` AS a, `Examiner` AS e WHERE ID_Hospital_Account = $id AND a.ID = e.ID_Account ";
 $result_query_name = mysqli_query($conn, $select_query_name);
 
 ($row = mysqli_fetch_assoc($result_query_name));
@@ -49,7 +49,7 @@ $result_query_name = mysqli_query($conn, $select_query_name);
 ($row = mysqli_fetch_assoc($result_query_name));
 $addresss = $row['addresss'];
 echo"
-    <td>$Addresss</td>
+    <td>$addresss</td>
     </tr>";
 
 }
