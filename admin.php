@@ -31,7 +31,7 @@
   if (isset($_SESSION['role'])) {
       $role = $_SESSION['role'];
   }
-
+  $user = $_SESSION['userName'];
 ?>
 
 <!DOCTYPE html>

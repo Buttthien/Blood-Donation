@@ -1,5 +1,10 @@
 <?php
 include('connect/connect.php');
+session_start(); // Start the session
+
+if(isset($_SESSION['role'])){
+    $role = $_SESSION['role'];
+}
 
 if(isset($_POST['addAccount'])) {
     // Check if all required fields are present and not empty
@@ -14,25 +19,32 @@ if(isset($_POST['addAccount'])) {
         $functionAccount = $_POST['Function_Account'];
 
         // Check if username already exists
-        $checkUsername = "SELECT * FROM account WHERE UserName='$userName'";
-        $result = $conn->query($checkUsername);
+        $checkUsername = $conn->prepare("SELECT * FROM account WHERE UserName = ?");
+        $checkUsername->bind_param("s", $userName);
+        $checkUsername->execute();
+        $result = $checkUsername->get_result();
+
         if($result->num_rows > 0) {
-            header("Location: admin.php?createAccount&error=Username already exists");
+            header("Location: admin.php?createAccount&role=" . urlencode($role) . "&error=" . urlencode("Username already exists"));
             exit();
         } else {
+            // Hash the password
+            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
             // Insert data into the database
-            $insertQuery = "INSERT INTO account (Private_Name, UserName, Password, Address, Function_Account)
-                            VALUES ('$privateName', '$userName', '$password', '$address', '$functionAccount')";
-            if($conn->query($insertQuery) === TRUE) {
+            $insertQuery = $conn->prepare("INSERT INTO account (Private_Name, UserName, Password, Address, Function_Account) VALUES (?, ?, ?, ?, ?)");
+            $insertQuery->bind_param("sssss", $privateName, $userName, $hashedPassword, $address, $functionAccount);
+            
+            if($insertQuery->execute()) {
                 // Redirect to login page after successful insertion
-                header("Location: admin.php?createAccount&error=Add account successfully!");
+                header("Location: admin.php?createAccount&role=" . urlencode($role) . "&error=" . urlencode("Add account successfully!"));
                 exit(); // Exit to prevent further execution
             } else {
-                echo "Error: " . $insertQuery . "<br>" . $conn->error; // Handle database insertion error
+                echo "Error: " . $insertQuery->error; // Handle database insertion error
             }
         }
     } else {
-        header("Location: admin.php?createAccount&error=Please fill in all required fields");
+        header("Location: admin.php?createAccount&role=" . urlencode($role) . "&error=" . urlencode("Please fill in all required fields"));
         exit(); // Exit to prevent further execution
     }
 }

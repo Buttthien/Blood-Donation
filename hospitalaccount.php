@@ -149,7 +149,7 @@
           </ul>
         </li>
         <li class="nav-item">
-        <a class="nav-link" href="admin.php?createAccount&role=<?php echo $role; ?>">Add Account</a>
+        <a class="nav-link" href="hospitalaccount.php?createAccount&role=<?php echo $role; ?>">Add Account</a>
         </li>
       
         <form class="d-flex" role="search">

@@ -7,9 +7,22 @@ ini_set('session.cookie_lifetime', 0);    // Session cookie expires when the bro
 
 session_start();
 
+if(isset($_SESSION['role'])) {
+    $role = $_SESSION['role'];
+}
+
 // Redirect to admin page if already logged in
-if (isset($_SESSION['userName'])) {
+
+if (isset($_SESSION['userName']) && $role ==='Admin') {
     header('Location: admin.php');
+    exit();
+}
+else if (isset($_SESSION['userName']) && $role ==='Hospital') {
+    header('Location: hospitalaccount.php');
+    exit();
+}
+else if (isset($_SESSION['userName']) && $role ==='Examiner') {
+    header('Location: examineraccount.php');
     exit();
 }
 ?>
