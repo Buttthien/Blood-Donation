@@ -1,36 +1,22 @@
 <?php
   include('connect/connect.php');
-  ini_set('session.gc_maxlifetime', 1800);  // 30 minutes
-  ini_set('session.cookie_lifetime', 0);   // Session cookie expires when the browser is closed
   session_start();
 
   // Check if user is logged in
   if (!isset($_SESSION['userName'])) {
-      header('Location: loginPage.php');
-      exit();
-  }
-
-  // Check if the session has expired
-  if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY']) > 1800) {
-    // Last request was more than 30 minutes ago
-    session_unset();     // Unset $_SESSION variables
-    session_destroy();   // Destroy the session
     header('Location: loginPage.php');
     exit();
   }
 
-  // Update last activity time stamp
-  $_SESSION['LAST_ACTIVITY'] = time();
+  if(isset($_SESSION['role'])) {
+    $role = $_SESSION['role'];
+    $ID_Hospital = $_SESSION['ID'];
 
-  // Prevent caching
-  header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-  header("Cache-Control: post-check=0, pre-check=0", false);
-  header("Pragma: no-cache");
-
-  // Handle user role if needed
-  if (isset($_SESSION['role'])) {
-      $role = $_SESSION['role'];
-  }
+    
+} else {
+    
+}
+$user = $_SESSION['userName'];
 
 ?>
 
@@ -134,22 +120,16 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="admin.php?total">Total</a>
+          <a class="nav-link" href="examineraccount.php">Total</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="admin.php?hospital">Hospital</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="admin.php?details">Details</a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link" href="admin.php?createAccount&role=<?php echo $role; ?>">Add Account</a>
+          <a class="nav-link" href="examineralaccount.php">Donator</a>
         </li>
         <form class="d-flex" role="search">
         <input class="search" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
+
       </ul>
     </div>
 
@@ -166,15 +146,21 @@
     <!-- Child Class Start -->
     <div class = "container my-5">
       <?php
-          if(isset($_GET['total'])){
-            include('total.php');
-          }else if(isset($_GET['hospital'])){
-            include('hospital.php');
+      /*
+    header("Location: hospitalaccount.php"); // to the after-login page    HOSPITAL
+    
+          if(isset($_GET['hospitaltotal'])){
+            include('hospitaltotal.php');
+          }else if(isset($_GET['hospitalexaminer'])){
+            include('hospitalexaminer.php');
           }else if(isset($_GET['createAccount'])){
             include('createAccount.php');
-          }else if(isset($_GET['details'])){
-            include('details.php');
+          }else if(isset($_GET['hospitaldetails'])){
+            include('hospitaldetails.php');
+          }else if(isset($_GET['searching'])){
+            include('searching.php');
           }
+    */
       ?>
     </div>
 

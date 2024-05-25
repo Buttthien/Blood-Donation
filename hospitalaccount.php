@@ -1,37 +1,30 @@
 <?php
   include('connect/connect.php');
-  ini_set('session.gc_maxlifetime', 1800);  // 30 minutes
-  ini_set('session.cookie_lifetime', 0);   // Session cookie expires when the browser is closed
   session_start();
 
   // Check if user is logged in
   if (!isset($_SESSION['userName'])) {
-      header('Location: loginPage.php');
-      exit();
-  }
-
-  // Check if the session has expired
-  if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY']) > 1800) {
-    // Last request was more than 30 minutes ago
-    session_unset();     // Unset $_SESSION variables
-    session_destroy();   // Destroy the session
     header('Location: loginPage.php');
     exit();
   }
 
-  // Update last activity time stamp
-  $_SESSION['LAST_ACTIVITY'] = time();
+  if(isset($_SESSION['role'])) {
+    $role = $_SESSION['role'];
+    $ID_Hospital = $_SESSION['ID'];
+    $userName = $_SESSION['userName'];
+    
+} else {
+    
+}
+    $user = $_SESSION['userName'];
 
-  // Prevent caching
-  header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-  header("Cache-Control: post-check=0, pre-check=0", false);
-  header("Pragma: no-cache");
+    $select_data = "Select ID AS IDdd from `hospital_account` WHERE ID = $ID_Hospital ";
+    $result_data = mysqli_query($conn, $select_data );
 
-  // Handle user role if needed
-  if (isset($_SESSION['role'])) {
-      $role = $_SESSION['role'];
-  }
-
+    $row_data = mysqli_fetch_assoc($result_data);
+    
+    $_SESSION['ID_Hospital'] = $row_data['IDdd'];
+    $try = $_SESSION['ID_Hospital'];
 ?>
 
 <!DOCTYPE html>
@@ -73,7 +66,10 @@
 </head>
 
 <body>
+
   
+    <h5>
+
     <!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
@@ -134,22 +130,33 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="admin.php?total">Total</a>
+          <a class="nav-link" href="hospitalaccount.php?hospitaltotal">Total</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="admin.php?hospital">Hospital</a>
+          <a class="nav-link" href="hospitalaccount.php?hospitalexaminer">Examiner</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="admin.php?details">Details</a>
+          <a class="nav-link" href="hospitalaccount.php?hospitaldetails">Details</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Blood Delivering
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="hospitalaccount.php?transfer">Queue</a></li>
+            <li><a class="dropdown-item" href="hospitalaccount.php?queue">Request Form</a></li>
+          </ul>
         </li>
         <li class="nav-item">
         <a class="nav-link" href="admin.php?createAccount&role=<?php echo $role; ?>">Add Account</a>
         </li>
+      
         <form class="d-flex" role="search">
         <input class="search" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
+
       </ul>
     </div>
 
@@ -166,14 +173,20 @@
     <!-- Child Class Start -->
     <div class = "container my-5">
       <?php
-          if(isset($_GET['total'])){
-            include('total.php');
-          }else if(isset($_GET['hospital'])){
-            include('hospital.php');
+          if(isset($_GET['hospitaltotal'])){
+            include('hospitaltotal.php');
+          }else if(isset($_GET['hospitalexaminer'])){
+            include('hospitalexaminer.php');
           }else if(isset($_GET['createAccount'])){
             include('createAccount.php');
-          }else if(isset($_GET['details'])){
-            include('details.php');
+          }else if(isset($_GET['hospitaldetails'])){
+            include('hospitaldetails.php');
+          }else if(isset($_GET['searching'])){
+            include('searching.php');
+          }else if(isset($_GET['transfer'])){
+            include('transfer.php');
+          }else if(isset($_GET['queue'])){
+            include('queue.php');
           }
       ?>
     </div>

@@ -22,7 +22,7 @@ include('connect/connect.php');
         <th scope="col">ID Hospital</th>
         <th scope="col">Private Name</th>
         <th scope="col">Total Blood</th>
-        <th scope="col">Examinor</th>
+        <th scope="col">Examiner</th>
         </tr>
     </thead>
     <tbody >
@@ -62,7 +62,7 @@ echo"
     }
     
 //Examinor
-    $select_query_examinor ="SELECT COUNT(ID) as num FROM `examinor` WHERE ID_Hospital_Account = $id";
+    $select_query_examinor ="SELECT COUNT(ID) as num FROM `examiner` WHERE ID_Hospital_Account = $id";
     $result_query_examinor = mysqli_query($conn, $select_query_examinor);
 
     ($row = mysqli_fetch_assoc($result_query_examinor));
