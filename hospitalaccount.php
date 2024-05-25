@@ -11,12 +11,20 @@
   if(isset($_SESSION['role'])) {
     $role = $_SESSION['role'];
     $ID_Hospital = $_SESSION['ID'];
+    $userName = $_SESSION['userName'];
     
 } else {
     
 }
-  
+    $user = $_SESSION['userName'];
 
+    $select_data = "Select ID AS IDdd from `hospital_account` WHERE ID = $ID_Hospital ";
+    $result_data = mysqli_query($conn, $select_data );
+
+    $row_data = mysqli_fetch_assoc($result_data);
+    
+    $_SESSION['ID_Hospital'] = $row_data['IDdd'];
+    $try = $_SESSION['ID_Hospital'];
 ?>
 
 <!DOCTYPE html>
@@ -58,7 +66,10 @@
 </head>
 
 <body>
+
   
+    <h5>
+
     <!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
@@ -96,7 +107,9 @@
                     <i class="fas fa-user"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <?php
+                    echo"<li><a class='dropdown-item' href='#'>@$user </a></li>"
+                    ?>
                     <li><a class="dropdown-item" href="logout.php">Log Out</a></li>
                 </ul>
             </li>
@@ -126,17 +139,23 @@
         <li class="nav-item">
           <a class="nav-link" href="hospitalaccount.php?hospitaldetails">Details</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Sign Up</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Blood Delivering
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="hospitalaccount.php?transfer">Queue</a></li>
+            <li><a class="dropdown-item" href="hospitalaccount.php?queue">Request Form</a></li>
+          </ul>
         </li>
         <li class="nav-item">
         <a class="nav-link" href="admin.php?createAccount&role=<?php echo $role; ?>">Add Account</a>
         </li>
       
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" href="hospitalaccount.php?searching" type="submit">Search</button>
-    </form>
+        <form class="d-flex" role="search">
+        <input class="search" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
 
       </ul>
     </div>
@@ -164,6 +183,10 @@
             include('hospitaldetails.php');
           }else if(isset($_GET['searching'])){
             include('searching.php');
+          }else if(isset($_GET['transfer'])){
+            include('transfer.php');
+          }else if(isset($_GET['queue'])){
+            include('queue.php');
           }
       ?>
     </div>

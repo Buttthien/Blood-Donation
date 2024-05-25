@@ -33,7 +33,7 @@ $select_query ="SELECT ID as id FROM `Examiner` WHERE ID_Account = $idd";
         <td>$id</td>
         ";
 //Name
-$select_query_name ="SELECT a.Private_Name as namee FROM `account` AS a, 'Examiner' AS e WHERE a.ID = $idd";
+$select_query_name ="SELECT a.Private_Name as namee FROM `account` AS a, `Examiner` AS e WHERE a.ID = $idd AND a.ID = e.ID_Account";
 $result_query_name = mysqli_query($conn, $select_query_name);
 
 ($row = mysqli_fetch_assoc($result_query_name));
@@ -43,7 +43,7 @@ echo"
     ";
 
 //Address
-$select_query_name ="SELECT a.Address as addresss FROM `account` AS a, 'Examiner' AS e WHERE a.ID = $idd";
+$select_query_name ="SELECT a.Address as addresss FROM `account` AS a, `Examiner` AS e WHERE a.ID = $idd";
 $result_query_name = mysqli_query($conn, $select_query_name);
 
 ($row = mysqli_fetch_assoc($result_query_name));

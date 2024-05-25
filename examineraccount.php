@@ -11,11 +11,12 @@
   if(isset($_SESSION['role'])) {
     $role = $_SESSION['role'];
     $ID_Hospital = $_SESSION['ID'];
+
     
 } else {
     
 }
-  
+$user = $_SESSION['userName'];
 
 ?>
 
@@ -96,7 +97,9 @@
                     <i class="fas fa-user"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <?php
+                    echo"<li><a class='dropdown-item' href='#'>@$user </a></li>"
+                    ?>
                     <li><a class="dropdown-item" href="logout.php">Log Out</a></li>
                 </ul>
             </li>
@@ -117,10 +120,10 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="ẽxamineraccount.php">Total</a>
+          <a class="nav-link" href="examineraccount.php">Total</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="hospitalaccount.php">Donator</a>
+          <a class="nav-link" href="examineralaccount.php">Donator</a>
         </li>
         <form class="d-flex" role="search">
         <input class="search" type="search" placeholder="Search" aria-label="Search">

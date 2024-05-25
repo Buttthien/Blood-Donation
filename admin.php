@@ -11,10 +11,11 @@
   if(isset($_SESSION['role'])) {
     $role = $_SESSION['role'];
     
+    
 } else {
     
 }
-  
+  $user = $_SESSION['userName'];
 
 ?>
 
@@ -95,7 +96,9 @@
                     <i class="fas fa-user"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <?php
+                    echo"<li><a class='dropdown-item' href='#'>@$user </a></li>"
+                    ?>
                     <li><a class="dropdown-item" href="logout.php">Log Out</a></li>
                 </ul>
             </li>
