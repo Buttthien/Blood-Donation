@@ -128,9 +128,7 @@
         <li class="nav-item">
           <a class="nav-link" href="admin.php?details">Details</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Sign Up</a>
-        </li>
+
         <li class="nav-item">
         <a class="nav-link" href="admin.php?createAccount&role=<?php echo $role; ?>">Add Account</a>
         </li>

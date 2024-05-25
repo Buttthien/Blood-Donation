@@ -18,19 +18,14 @@
 }
     $user = $_SESSION['userName'];
 
-    $select_data = "Select ID AS IDdd from `hospital_account` WHERE ID = $ID_Hospital ";
-    $result_data = mysqli_query($conn, $select_data );
 
-    $row_data = mysqli_fetch_assoc($result_data);
-    
-    $_SESSION['ID_Hospital'] = $row_data['IDdd'];
-    $try = $_SESSION['ID_Hospital'];
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+  
     <meta charset="utf-8">
     <title>Admin Account</title>
 
@@ -81,7 +76,7 @@
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 wow fadeIn" data-wow-delay="0.1s">
         <a href="index.php" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <h1 class="m-0 text-primary"><i class="far fa-hospital me-3"></i>Blood</h1>
+            <h1 class="m-0 text-primary"><i class="far fa-hospital me-3"></i> Blood</h1>
         </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
