@@ -31,6 +31,10 @@ if(isset($_GET['role'])) {
         // Check for the Examiner role and render a specific form
         if ($role === 'Examiner') { ?>
             <form action="addExaminerAccount.php" method="post" id="formExaminer">
+                <?php if(isset($_GET['error'])): ?>
+                    <p class="error"><?php echo htmlspecialchars($_GET['error']) ?></p>
+                <?php endif; ?>
+
                 <div class="row g-3">
                     <div class="col-12 col-sm-6">
                         <input type="text" class="form-control border-0" name="Private_Name" placeholder="Full Name" style="height: 55px;">

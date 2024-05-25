@@ -2,9 +2,7 @@
 include('connect/connect.php');
 session_start(); // Start the session
 
-if(isset($_SESSION['role'])){
-    $role = $_SESSION['role'];
-}
+$role = isset($_SESSION['role']) ? $_SESSION['role'] : null;
 
 if(isset($_POST['addAccount'])) {
     // Check if all required fields are present and not empty
@@ -36,6 +34,30 @@ if(isset($_POST['addAccount'])) {
             $insertQuery->bind_param("sssss", $privateName, $userName, $hashedPassword, $address, $functionAccount);
             
             if($insertQuery->execute()) {
+                // If account is created successfully and the role is Examiner
+                if($functionAccount === 'Examiner') {
+                    $ID_Account = $conn->insert_id; // Get the ID of the newly inserted account
+
+                    // Retrieve hospital account ID
+                    $getHospitalID = $conn->prepare("SELECT ID as accountID FROM hospital_account WHERE ID_Account = ?");
+                    $getHospitalID->bind_param("i", $_SESSION['ID']);
+                    $getHospitalID->execute();
+                    $examinerResult = $getHospitalID->get_result();
+                    
+                    if ($examinerResult->num_rows > 0) {
+                        $row = $examinerResult->fetch_assoc();
+                        $hospitalIdAccount = $row['accountID'];
+
+                        // Insert into examiner table
+                        $insertHptQuery = $conn->prepare("INSERT INTO examiner (ID_Account, ID_Hospital_Account) VALUES (?, ?)");
+                        $insertHptQuery->bind_param("ii", $ID_Account, $hospitalIdAccount);
+                        if(!$insertHptQuery->execute()) {
+                            echo "Error: " . $insertHptQuery->error; // Handle database insertion error for examiner table
+                        }
+                    } else {
+                        echo "Error: Hospital account ID not found"; // Handle case where hospital account ID is not found
+                    }
+                }
                 // Redirect to login page after successful insertion
                 header("Location: admin.php?createAccount&role=" . urlencode($role) . "&error=" . urlencode("Add account successfully!"));
                 exit(); // Exit to prevent further execution
