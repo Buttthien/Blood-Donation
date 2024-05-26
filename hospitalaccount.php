@@ -17,7 +17,14 @@
     
 }
     $user = $_SESSION['userName'];
+    
+    //ID HOSPITAL START
+    $sql = "SELECT ha.ID as var FROM `account` AS a, `hospital_account` as ha WHERE a.ID = ha.ID_Account AND a.ID = $ID_Hospital "; 
+    $result = $conn->query($sql);
+      $row = $result->fetch_assoc();
+       $_SESSION['ID_Hospital'] = $row['var'];
 
+    //ID HOSPITAL END
 
 ?>
 

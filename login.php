@@ -18,11 +18,14 @@ if(isset($_POST['signInButton']))
         $_SESSION['role'] = $row['Function_Account'];
         $_SESSION['ID'] = $row['ID'];
         if( $row['Function_Account'] == 'Admin'){
-        header("Location: admin.php?total"); // to the after-login page   ADMIN
+            header("Location: admin.php?total"); // to the after-login page   ADMIN
         }else if($row['Function_Account'] == 'Hospital'){
-        header("Location: hospitalaccount.php"); // to the after-login page    HOSPITAL
+
+
+            
+            header("Location: hospitalaccount.php"); // to the after-login page    HOSPITAL
         }else if($row['Function_Account'] == 'Examiner'){
-        header("Location: examineraccount.php"); // to the after-login page    EXAMINER
+            header("Location: examineraccount.php"); // to the after-login page    EXAMINER
         }
         exit();
     }
