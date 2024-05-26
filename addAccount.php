@@ -23,15 +23,22 @@ if(isset($_POST['addAccount'])) {
         $result = $checkUsername->get_result();
 
         if($result->num_rows > 0) {
-            header("Location: admin.php?createAccount&role=" . urlencode($role) . "&error=" . urlencode("Username already exists"));
-            exit();
+            if($role === 'Admin')
+            {
+                header("Location: admin.php?createAccount&role=" . urlencode($role) . "&error=" . urlencode("Username already exists"));
+                exit();
+            }
+            else
+            {
+                header("Location: hospitalaccount.php?createAccount&role=" . urlencode($role) . "&error=" . urlencode("Username already exists"));
+                exit();
+            }
+
         } else {
-            // Hash the password
-            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
             // Insert data into the database
             $insertQuery = $conn->prepare("INSERT INTO account (Private_Name, UserName, Password, Address, Function_Account) VALUES (?, ?, ?, ?, ?)");
-            $insertQuery->bind_param("sssss", $privateName, $userName, $hashedPassword, $address, $functionAccount);
+            $insertQuery->bind_param("sssss", $privateName, $userName, $password, $address, $functionAccount);
             
             if($insertQuery->execute()) {
                 // If account is created successfully and the role is Examiner
@@ -39,14 +46,18 @@ if(isset($_POST['addAccount'])) {
                     $ID_Account = $conn->insert_id; // Get the ID of the newly inserted account
 
                     // Retrieve hospital account ID
+                    /*
                     $getHospitalID = $conn->prepare("SELECT ID as accountID FROM hospital_account WHERE ID_Account = ?");
                     $getHospitalID->bind_param("i", $_SESSION['ID']);
                     $getHospitalID->execute();
                     $examinerResult = $getHospitalID->get_result();
+                    */
                     
-                    if ($examinerResult->num_rows > 0) {
-                        $row = $examinerResult->fetch_assoc();
-                        $hospitalIdAccount = $row['accountID'];
+                    if (isset($_SESSION['hospitalID'])) {
+                        // $row = $examinerResult->fetch_assoc();
+                        // $hospitalIdAccount = $row['accountID'];
+
+                        $hospitalIdAccount = $_SESSION['hospitalID'];
 
                         // Insert into examiner table
                         $insertHptQuery = $conn->prepare("INSERT INTO examiner (ID_Account, ID_Hospital_Account) VALUES (?, ?)");
@@ -59,15 +70,32 @@ if(isset($_POST['addAccount'])) {
                     }
                 }
                 // Redirect to login page after successful insertion
-                header("Location: admin.php?createAccount&role=" . urlencode($role) . "&error=" . urlencode("Add account successfully!"));
-                exit(); // Exit to prevent further execution
+                if($role === 'Admin')
+                {
+                    header("Location: admin.php?createAccount&role=" . urlencode($role) . "&success=" . urlencode("Add Account Successfully"));
+                    exit(); // Exit to prevent further execution
+                }
+                else
+                {
+                    header("Location: hospitalaccount.php?createAccount&role=" . urlencode($role) . "&success=" . urlencode("Add Account Successfully"));
+                    exit(); // Exit to prevent further execution
+                }
             } else {
                 echo "Error: " . $insertQuery->error; // Handle database insertion error
             }
         }
     } else {
-        header("Location: admin.php?createAccount&role=" . urlencode($role) . "&error=" . urlencode("Please fill in all required fields"));
-        exit(); // Exit to prevent further execution
+        if($role === 'Admin')
+        {
+            header("Location: admin.php?createAccount&role=" . urlencode($role) . "&error=" . urlencode("Please fill in all required fields"));
+            exit(); // Exit to prevent further execution
+        }
+        else
+        {
+            header("Location: hospitalaccount.php?createAccount&role=" . urlencode($role) . "&error=" . urlencode("Please fill in all required fields"));
+            exit(); // Exit to prevent further execution
+        }
+
     }
 }
 ?>

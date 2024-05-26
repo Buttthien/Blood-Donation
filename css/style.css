@@ -550,8 +550,18 @@ p.error {
     margin-bottom: 16px;
 }
 
+p.success {
+    text-align: center;
+    margin: 0;
+    background-color: #FFFFFF;
+    border: 1px solid green;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 16px;
+}
+
 .createAccountForm {
-    margin-left: 100px;
+    margin-left: 15%;
 }
 
 .changeForm {
