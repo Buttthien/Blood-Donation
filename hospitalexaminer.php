@@ -1,6 +1,6 @@
 <?php 
 include('connect/connect.php');
-$idd = $_SESSION['ID'];
+$idd = $_SESSION['hospitalID'];
 ?>
 
 
@@ -23,17 +23,17 @@ $idd = $_SESSION['ID'];
 <?php
 //ID
 
-$select_query ="SELECT ID FROM `Examiner` WHERE ID_Hospital_Account = $idd";
+$select_query ="SELECT ID_Account FROM `Examiner` WHERE ID_Hospital_Account = $idd";
     $result_query = mysqli_query($conn, $select_query);
 
     while($row = mysqli_fetch_assoc($result_query)){
-        $id = $row['ID'];
+        $id = $row['ID_Account'];
         echo"
         <tr>
         <td>$id</td>
         ";
 //Name
-$select_query_name ="SELECT a.Private_Name as namee FROM `account` AS a, `Examiner` AS e WHERE ID_Hospital_Account = $id AND a.ID = e.ID_Account ";
+$select_query_name ="SELECT a.Private_Name as namee FROM `account` AS a, `Examiner` AS e WHERE ID_Hospital_Account = $idd AND a.ID = e.ID_Account ";
 $result_query_name = mysqli_query($conn, $select_query_name);
 
 ($row = mysqli_fetch_assoc($result_query_name));
@@ -43,7 +43,7 @@ echo"
     ";
 
 //Address
-$select_query_name ="SELECT a.Address as addresss FROM `account` AS a, `Examiner` AS e WHERE a.ID = $idd";
+$select_query_name ="SELECT a.Address as addresss FROM `account` AS a, `Examiner` AS e WHERE a.ID = $id";
 $result_query_name = mysqli_query($conn, $select_query_name);
 
 ($row = mysqli_fetch_assoc($result_query_name));
