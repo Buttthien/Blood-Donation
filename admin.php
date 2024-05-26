@@ -1,22 +1,37 @@
 <?php
   include('connect/connect.php');
+  ini_set('session.gc_maxlifetime', 1800);  // 30 minutes
+  ini_set('session.cookie_lifetime', 0);   // Session cookie expires when the browser is closed
   session_start();
 
   // Check if user is logged in
   if (!isset($_SESSION['userName'])) {
+      header('Location: loginPage.php');
+      exit();
+  }
+
+  // Check if the session has expired
+  if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY']) > 1800) {
+    // Last request was more than 30 minutes ago
+    session_unset();     // Unset $_SESSION variables
+    session_destroy();   // Destroy the session
     header('Location: loginPage.php');
     exit();
   }
 
-  if(isset($_SESSION['role'])) {
-    $role = $_SESSION['role'];
-    
-    
-} else {
-    
-}
-  $user = $_SESSION['userName'];
+  // Update last activity time stamp
+  $_SESSION['LAST_ACTIVITY'] = time();
 
+  // Prevent caching
+  header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+  header("Cache-Control: post-check=0, pre-check=0", false);
+  header("Pragma: no-cache");
+
+  // Handle user role if needed
+  if (isset($_SESSION['role'])) {
+      $role = $_SESSION['role'];
+  }
+  $user = $_SESSION['userName'];
 ?>
 
 <!DOCTYPE html>
