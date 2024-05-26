@@ -301,7 +301,21 @@
         padding-left: calc(((100% - 1320px) / 2) + .75rem);
     }
 }
+.feature .btn {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    background: #FFFFFF;
+    border-radius: 40px;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: .5s;
+}
 
+.feature:hover .btn {
+    width: 140px;
+}
 
 /*** Team ***/
 .team-item img {
