@@ -3,7 +3,7 @@
   session_start();
 
   // Check if user is logged in
-  if (!isset($_SESSION['userName'])) {
+  if (!isset($_SESSION['userName']) && $role != 'Hospital') {
     header('Location: loginPage.php');
     exit();
   }
@@ -24,6 +24,17 @@
        $_SESSION['ID_Hospital'] = $row['var'];
 
     //ID HOSPITAL END
+
+
+    // Prevent access to createAccount from other roles
+    if($role == 'Admin')
+    {
+      header("Location: admin.php?createAccount&role=$role");
+    }
+    else if($role == 'Examiner')
+    {
+      header("Location: examineraccount.php?createAccount&role=$role");
+    }
 
 ?>
 

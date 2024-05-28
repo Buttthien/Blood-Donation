@@ -16,6 +16,15 @@ if (isset($_SESSION['role'])) {
 }
 
 $user = $_SESSION['userName'];
+// Prevent access to createAccount from other roles
+if($role == 'Admin')
+{
+    header("Location: admin.php?createAccount&role=$role");
+}
+else if($role == 'Hospital')
+{
+    header("Location: hospitalaccount.php?createAccount&role=$role");
+}
 ?>
 
 <!DOCTYPE html>

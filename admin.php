@@ -32,6 +32,16 @@
       $role = $_SESSION['role'];
   }
   $user = $_SESSION['userName'];
+
+  // Prevent access to createAccount from other roles
+  if($role == 'Hospital')
+  {
+    header("Location: hospitalaccount.php?createAccount&role=$role");
+  }
+  else if($role == 'Examiner')
+  {
+    header("Location: examineraccount.php?createAccount&role=$role");
+  }
 ?>
 
 <!DOCTYPE html>
