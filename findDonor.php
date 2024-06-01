@@ -7,6 +7,7 @@ include('connect/connect.php');
 
 if (isset($_POST['donorCID'])) {
     $CID = $_POST['donorCID'];
+    $Phone = $_POST['donorPhone'];
     $getDonor = $conn->prepare("SELECT 
     Name,
     Blood_Type,
@@ -15,11 +16,12 @@ if (isset($_POST['donorCID'])) {
     FROM 
     Donator
     WHERE Citizen_Identification = ?
+    AND Phone = ?
     GROUP BY 
     Name, Blood_Type;
     ");
     
-    $getDonor->bind_param("i", $CID); // Use "i" for integer binding
+    $getDonor->bind_param("ii", $CID, $Phone); // Use "i" for integer binding
     
     $data = [];
     if ($getDonor->execute()) {

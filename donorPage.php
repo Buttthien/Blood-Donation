@@ -113,6 +113,9 @@ $data = isset($_SESSION['donator_data']) ? $_SESSION['donator_data'] : [];
                         <div class="d-grid">
                             <input type="text" class="form-control border-3" placeholder="Your Citizenship Identification" style="height: 45px; text-align: center;" name="donorCID" required>
                         </div>
+                        <div class="d-grid">
+                            <input type="text" class="form-control border-3" placeholder="Phone" style="height: 45px; text-align: center;" name="donorPhone" required>
+                        </div>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" name="donorInfo" id="findDonorBtn">Find</button>
                     </div>
                 </form>
