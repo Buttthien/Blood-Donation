@@ -14,10 +14,9 @@ $conn = mysqli_connect($host, $user, $pass, $db);
         }
 
         if(isset($_GET['queue_id'])){
-
+            
             $queue_id = $_GET['queue_id'];
             $hospital_id = $_GET['hospital_id'];
-
             //INSERT INTO HISTORY OF TRANSFER
             $sql = "INSERT INTO History_Of_Transfer(ID_Queue, ID_Adapted_Hospital)
                     VALUES ($queue_id, $hospital_id)";
@@ -44,7 +43,7 @@ $conn = mysqli_connect($host, $user, $pass, $db);
             $select_data = "SELECT bk.Amount AS present, q.Amount AS needy, q.ID_Hospital AS ID_HA  
                             FROM `blood_bank` AS bk, `Queue` AS q
                             WHERE q.ID_Hospital = bk.ID_Hospital 
-                            AND bk.Blood_Type = $Type AND q.ID = $queue_id ";
+                            AND bk.Blood_Type = '$Type' AND q.ID = $queue_id ";
             $result_data = mysqli_query($conn, $select_data );
             $row_data = mysqli_fetch_assoc($result_data);
             
@@ -54,7 +53,7 @@ $conn = mysqli_connect($host, $user, $pass, $db);
             $needy = $row_data['needy'];
 
             //ADAPTER
-            $select_data = "SELECT Amount FROM `blood_bank` WHERE ID_Hospital = $hospital_id AND Blood_Type = $Type ";
+            $select_data = "SELECT Amount FROM `blood_bank` WHERE ID_Hospital = $hospital_id AND Blood_Type = '$Type' ";
             $result_data = mysqli_query($conn, $select_data );
             $row_data = mysqli_fetch_assoc($result_data);
             
@@ -65,7 +64,7 @@ $conn = mysqli_connect($host, $user, $pass, $db);
             //REQUIRER
             $sql = "UPDATE `blood_bank`
             SET Amount = $blood1 + $needy
-            WHERE Blood_Type = $Type
+            WHERE Blood_Type = '$Type'
             AND ID_Hospital = $id_needy
             ";
             $res = mysqli_query($conn, $sql);
@@ -73,7 +72,7 @@ $conn = mysqli_connect($host, $user, $pass, $db);
             //ADAPTER
             $sql = "UPDATE `blood_bank`
             SET Amount = $blood2 - $needy
-            WHERE Blood_Type = $Type
+            WHERE Blood_Type = '$Type'
             AND ID_Hospital = $hospital_id
             ";
             $res = mysqli_query($conn, $sql);

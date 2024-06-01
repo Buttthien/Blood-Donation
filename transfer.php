@@ -5,6 +5,7 @@ $id_ha = $_SESSION['ID_Hospital'];
 ?>
 
 <form action="" method = "post" class = "mb-2">
+    
 <h2 class="text-center"> BLOOD QUEUE</h2>
 <div class="row">
     <?php
@@ -18,7 +19,7 @@ $id_ha = $_SESSION['ID_Hospital'];
         //FIND DISTINCT TYPE OF BLOOD
                 $select_data = "SELECT A.Private_Name AS hospital_name,Q.ID AS id_queue, Q.Blood_Type AS blood_type, Q.Amount AS blood_amount
                                 from `queue` AS Q, `account` AS A, `hospital_account` AS h
-                                WHERE h.ID_Account = A.ID AND h.ID = Q.ID_Hospital AND Q.Status = 'waiting' ";
+                                WHERE h.ID_Account = A.ID AND h.ID = Q.ID_Hospital AND Q.Status = 'waiting' AND Q.ID_Hospital <> $id_ha ";
                 $result_data = mysqli_query($conn, $select_data );
                 while($row_data = mysqli_fetch_assoc($result_data)){
                     
@@ -54,56 +55,6 @@ $id_ha = $_SESSION['ID_Hospital'];
             </div>
         ";
         }
-        // CHECK IF BUTTONS ARE PRESSED OR NOT
-    //if($count >= 0)
-    //{
-        /*
-        for($x = 0; $x <= $count; $x ++){
-
-            {
-            
-            // CHECK IF QUEUE IS ACCEPTED OR NOT
-            $sql = "SELECT Status  FROM `queue` WHERE ID = $queue_id[$x] AND Status = 'waiting' ";
-
-            $result = $conn->query($sql);
-            if($result->num_rows > 0){
-
-                    // INSERT NEW HISTORY OF TRANSFER
-                    $sql = "INSERT INTO History_Of_Transfer (ID_Queue, ID_Adapted_Hospital)
-                            VALUES ($queue_id[$x], $id_ha)";
-                    $conn->query($sql);
-                            echo "
-                                    <div id='myModal' class='modal'>
-                                    <!-- Modal content -->
-                                    <div class='modal-content'>
-                                        <span class='close'>&times;</span>
-                                        <h2 class='modal-heading'>
-                                        Your blood is processed to deliver to $queue_name[$x]
-                                        </h2>
-                                        <p>Thank you for your support.</p>
-                                    </div>
-                                </div>
-                            ";
-                    //UPDATE THE STATISTIC INTO BLOOD BANK
-        }else{
-                echo"
-                <div id='myModal' class='modal'>
-                <!-- Modal content -->
-                <div class='modal-content'>
-                    <span class='close'>&times;</span>
-                    <h2 class='modal-heading'>
-                    This queue has been adapted by other hospital!
-                    </h2>
-                    <p>Thank you for your support.</p>
-                </div>
-            </div>
-                ";
-        }
-        }
-        
-        }
-        */
-    //}
     ?>
 
 </div>
@@ -119,7 +70,6 @@ $id_ha = $_SESSION['ID_Hospital'];
         var queue_id = target.getAttribute("queue_id");
         var hospital_id = target.getAttribute("id_ha");
 
-         alert(queue_id);
         
             var xml = new XMLHttpRequest();
             xml.onreadystatechange = function(){
