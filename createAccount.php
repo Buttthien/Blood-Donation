@@ -78,7 +78,7 @@ if(isset($_GET['role'])) {
                 <?php endif; ?>
                 <?php if(isset($_GET['success'])): ?>
                     <p class="success"><?php echo htmlspecialchars($_GET['success']) ?></p>
-                <?php endif; ?>
+                <?php endif; ?> 
                 <div class="row g-3">
                     <div class="col-12 col-sm-6">
                         <input type="text" class="form-control border-0" name="Private_Name" placeholder="Full Name" style="height: 55px;">
