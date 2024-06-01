@@ -103,18 +103,15 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="about.php" class="nav-item nav-link">About</a>
-                <a href="service.php" class="nav-item nav-link">Service</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                     <div class="dropdown-menu rounded-0 rounded-bottom m-0">
                         <a href="feature.php" class="dropdown-item">Feature</a>
-                        <a href="team.php" class="dropdown-item">Our Doctor</a>
-                        <a href="appointment.php" class="dropdown-item">Appointment</a>
+                        <a href="team.php" class="dropdown-item">Donation Highlights</a>
+                        <a href="Whydonate.php" class="dropdown-item">Why donate blood?</a>
                         <a href="testimonial.php" class="dropdown-item">Testimonial</a>
-                        <a href="404.php" class="dropdown-item">404 Page</a>
                     </div>
                 </div>
-                
                 <a href="contact.php" class="nav-item nav-link">Contact</a>
                 <li class="profile dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -135,8 +132,6 @@
     <!-- Testing NavBar Start -->
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="admin.php?total">Blood Donation</a>
-
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

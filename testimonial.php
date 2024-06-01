@@ -86,13 +86,12 @@
                 <a href="about.php" class="nav-item nav-link">About</a>
                 <a href="loginPage.php" class="nav-item nav-link">Sign in</a>
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Pages</a>
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                     <div class="dropdown-menu rounded-0 rounded-bottom m-0">
                         <a href="feature.php" class="dropdown-item">Feature</a>
                         <a href="team.php" class="dropdown-item">Donation Highlights</a>
-                        <a href="appointment.php" class="dropdown-item">Why donate blood?</a>
-                        <a href="testimonial.php" class="dropdown-item active">Testimonial</a>
-                        <a href="404.php" class="dropdown-item">404 Page</a>
+                        <a href="Whydonate.php" class="dropdown-item">Why donate blood?</a>
+                        <a href="testimonial.php" class="dropdown-item">Testimonial</a>
                     </div>
                 </div>
                 <a href="contact.php" class="nav-item nav-link">Contact</a>

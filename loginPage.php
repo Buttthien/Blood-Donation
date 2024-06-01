@@ -115,79 +115,18 @@ else if (isset($_SESSION['userName']) && $role ==='Examiner') {
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                     <div class="dropdown-menu rounded-0 rounded-bottom m-0">
                         <a href="feature.php" class="dropdown-item">Feature</a>
-                        <a href="team.php" class="dropdown-item">Our Doctor</a>
-                        <a href="appointment.php" class="dropdown-item">Appointment</a>
+                        <a href="team.php" class="dropdown-item">Donation Highlights</a>
+                        <a href="Whydonate.php" class="dropdown-item">Why donate blood?</a>
                         <a href="testimonial.php" class="dropdown-item">Testimonial</a>
-                        <a href="404.php" class="dropdown-item">404 Page</a>
                     </div>
                 </div>
                 <a href="contact.php" class="nav-item nav-link">Contact</a>
             </div>
-            <a href="" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Sign in<i class="fa fa-arrow-right ms-3"></i></a>
+            <a href="donorPage.php" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block" style="background-color: #333;">For Donor<i class="fa fa-arrow-right ms-3"></i></a>
         </div>
     </nav>
     <!-- Navbar End -->
-    <!-- Donator Button -->
-    <div class="col-12 text-end">
-        <button class="btn btn-secondary" type="button" style="height: 45px;" data-bs-toggle="modal" data-bs-target="#donatorModal">Donator</button>
-    </div>
-    <!-- Modal -->
-    <div class="modal fade" id="donatorModal" tabindex="-1" aria-labelledby="donatorModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="donatorModalLabel">Enter Citizenship ID</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="citizenshipForm">
-                        <div class="mb-3">
-                            <label for="citizenshipID" class="form-label">Citizenship ID</label>
-                            <input type="text" class="form-control" id="citizenshipID" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Table to display information -->
-    <div id="infoTable" class="container mt-3" style="display: none;">
-        <!-- Table will be populated dynamically here -->
-    </div>
-    
-    <script>
-        document.getElementById('citizenshipForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent default form submission
-            
-            // Fetch information based on the entered citizenship ID
-            var citizenshipID = document.getElementById('citizenshipID').value;
-            // Here, you can use AJAX to send a request to the server to fetch the information based on the citizenship ID
-            // For demonstration, let's assume you have fetched the information and stored it in a variable called 'data'
-    
-            // Dummy data for demonstration
-            var data = {
-                name: 'John Doe',
-                age: 35,
-                city: 'New York'
-            };
-    
-            // Construct HTML for the table
-            var tableHTML = '<table class="table"><thead><tr><th scope="col">Name</th><th scope="col">Age</th><th scope="col">City</th></tr></thead><tbody>';
-            tableHTML += '<tr><td>' + data.name + '</td><td>' + data.age + '</td><td>' + data.city + '</td></tr>';
-            tableHTML += '</tbody></table>';
-    
-            // Display the table
-            document.getElementById('infoTable').innerHTML = tableHTML;
-            document.getElementById('infoTable').style.display = 'block';
-    
-            // You can also handle error cases and display appropriate messages if the data is not found or if there's an error in fetching the data
-        });
-    </script>
+
     <!-- Sign In Start -->
     <div class="container-xxl py-5" style="margin-top: 100px; margin-bottom: 100px;">
         <div class="container">
@@ -220,11 +159,10 @@ else if (isset($_SESSION['userName']) && $role ==='Examiner') {
                             <button class="btn btn-primary w-100 py-3" type="submit" style="height: 45px;" name="signInButton">Sign in</button>
                         </div>
                     </div>
-                </form>                
+                </form>     
             </div>
         </div>
     </div>
-
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
